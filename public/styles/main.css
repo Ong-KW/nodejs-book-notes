@@ -1,0 +1,137 @@
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Mobile Devices */
+/* @media (min-width: 319px) and (max-width: 480px) {
+    .container {
+        min-width: 210px;
+    }
+
+} */
+
+/* Tablets */
+/* @media (min-width: 481px) and (max-width: 767px) {
+    .container {
+        max-width: 210px;
+    }
+
+} */
+
+/* @media (min-width: 768px) and (max-width: 1200px) {
+    .container {
+        max-width: 490px;
+    }
+
+} */
+
+/* Laptops and desktops */
+@media (min-width: 1201px) {
+    .container {
+        max-width: 930px;
+    }
+
+}
+
+.container {
+    background-color: blueviolet;
+    margin: auto;
+}
+
+.note-container {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.note-group {
+    display: grid;
+    grid-template-columns: 180px auto;
+    grid-template-rows: 200px, auto;
+}
+
+.book-cover {
+    text-align: center;
+}
+
+.book-info {
+    padding: 10px;
+}
+
+.book-summary {
+    grid-column: span 2;
+    padding: 10px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.editpage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 520px;
+}
+
+.form-group {
+    padding: 5px;
+}
+
+.form-group > input[type=date] {
+    width: 200px;
+    padding: 5px;
+}
+
+.form-group > label {
+    text-align: center;
+    width: 200px;
+    padding: 5px;
+}
+
+.form-control {
+    
+    width: 500px;
+    padding: 10px 20px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    
+    padding: 10px;
+    height: 100px;
+    border-right: 1px solid;
+  
+    resize  : none;
+    overflow: auto;
+}

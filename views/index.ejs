@@ -1,0 +1,56 @@
+<%-include('partials/header.ejs') %>
+    <header>
+      <h1>BOOKS I HAVE READ</h1>
+      <a href="/new" role="button">Add a new book</a>
+      <p>Sort by <a href="/rating" role="button">Rating</a> or <a href="/recency" role="button">Recency</a></p>
+    </header>
+    
+    <% if (locals.bookData) { %>
+      <div class="container">
+        <% bookData.forEach((book) => { %>
+          <div class="note-container">
+            <div class="note-group">
+              <!-- Get book cover image from Open Library Covers API
+              URL pattern to access book cover https://covers.openlibrary.org/b/$key/$value-$size.jpg
+              Example: https://covers.openlibrary.org/b/isbn/0385472579-S.jpg -->
+              <div class="book-cover">
+                <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" height="200px"/>
+              </div>
+              <div class="book-info">
+                <h2><%= book.title %> BY <%= book.author %></h2>
+                <small>Date read: <%= book.date_read %></small>
+                <p>Rating: <%= book.rating %>/10</p>
+              </div>
+              <div class="book-summary">
+                <p><%= book.summary %></p><br>
+                <form action="/notes" method="post">
+                  <input type="text" name="bookNoteTitle" value="<%= book.title %>" hidden>
+                  <input type="submit" name="notes" value="Notes">
+                </form>
+              </div>
+            </div>
+            <div class="button-group">
+              <form action="/edit" method="post">
+                <div class="btn-edit">
+                  <input type="text" name="editBookId" value="<%= book.id %>" hidden>
+                  <input type="submit" name="EDIT" value="EDIT">
+                </div>
+              </form>
+              <form action="/delete" method="post">
+                <div class="btn-delete">
+                  <input type="text" name="deleteBookId" value="<%= book.id %>" hidden>
+                  <input type="submit" name="DELETE" value="DELETE">
+                </div>
+              </form>
+            </div>
+          </div>
+
+        <% }) %>
+      </div>
+        
+        
+    <% } %>
+    
+    <script src="index.js"></script>
+
+<%-include('partials/footer.ejs') %>

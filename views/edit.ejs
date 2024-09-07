@@ -1,0 +1,67 @@
+<%-include('partials/header.ejs') %>
+
+    <% if (locals.bookData) { %>
+        <div class="editpage-container">
+            <div>
+                <h1>EDIT BOOK NOTE</h1>
+            </div>
+            <div>
+                <form action="/update" method="post">
+                    <div class="form-container">
+                        <div class="form-group">
+                            <input class="form-control" type="hidden" name="id" value="<%= bookData.id %>"><br>
+                            <input class="form-control" type="text" name="title" placeholder="Title:" value="<%= bookData.title %>"><br>
+                            <input class="form-control" type="text" name="author" placeholder="Author:" value="<%= bookData.author %>"><br>
+                            <input class="form-control" type="text" name="isbn" placeholder="ISBN:" value="<%= bookData.isbn %>">
+                        </div>
+                        <div class="form-group">
+                            <label >Date Read</label>
+                            <input type="date" name="date_read" value="<%= bookData.date_read %>">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="number" name="rating" placeholder="Rating (1 to 10)" value="<%= bookData.rating %>"><br>
+                            <textarea class="form-control" name="summary" placeholder="Summary:"><%= bookData.summary %></textarea><br>
+                            <textarea class="form-control" name="notes" placeholder="Notes:"><%= bookData.notes %></textarea><br>
+                            <!-- <div class="form-control" name="notes" contenteditable="true"></div><br> -->
+                            <input class="form-control" type="submit" value="Submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    <% } else { %>
+        <div class="editpage-container">
+            <div>
+                <h1>NEW BOOK NOTE</h1>
+            </div>
+            <div>
+                <form action="/add" method="post">
+                    <div class="form-container">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="title" placeholder="Title:"><br>
+                            <input class="form-control" type="text" name="author" placeholder="Author:"><br>
+                            <input class="form-control" type="text" name="isbn" placeholder="ISBN:">
+                        </div>
+                        <div class="form-group">
+                            <label >Date Read</label>
+                            <input type="date" name="date_read">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="number" name="rating" placeholder="Rating (1 to 10)"><br>
+                            <textarea class="form-control" name="summary" placeholder="Summary:"></textarea><br>
+                            <textarea class="form-control" name="notes" placeholder="Notes:">Notes</textarea><br>
+                            <!-- <div class="form-control" name="notes" contenteditable="true"></div><br> -->
+                            <input class="form-control" type="submit" value="Submit">
+                        </div>
+                    </div> 
+                </form>
+            </div>
+        </div>
+        
+
+    <% } %>
+    <!-- <script src="index.js"></script> -->
+
+<%-include('partials/footer.ejs') %>
+
